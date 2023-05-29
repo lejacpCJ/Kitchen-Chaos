@@ -14,7 +14,7 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public Transform GetKitchenObjectParentTransform()
     {
-        return topPosition.transform;
+        return topPosition;
     }
 
     public void SetKitchebObject(KitchenObject kitchenObject)
