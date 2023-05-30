@@ -287,6 +287,7 @@ GameObject:
   - component: {fileID: 6441877868517312749}
   - component: {fileID: 2898678746474465577}
   - component: {fileID: 2060301092063703474}
+  - component: {fileID: 5012021152135831927}
   m_Layer: 5
   m_Name: CuttingProgressBarUI
   m_TagString: Untagged
@@ -392,6 +393,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cuttingCounter: {fileID: 5249880924620704619}
   barImage: {fileID: 1404006193262296388}
+--- !u!114 &5012021152135831927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359176092564877078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cd30b5db4085742a7f0a7291a4bb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
 --- !u!1001 &1475897464295814138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,7 +660,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: d72bee846803d074784ffb8f64e993ca,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2583978939312705454}
+      addedObject: {fileID: 8648363873875577643}
   m_SourcePrefab: {fileID: 100100000, guid: d72bee846803d074784ffb8f64e993ca, type: 3}
 --- !u!4 &2391275549262529956 stripped
 Transform:
@@ -660,7 +674,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2206332218776985871}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2583978939312705454
+--- !u!114 &8648363873875577643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,7 +683,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2391275549262529957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f99e2d5e2ba054c479e2856edcbf1bce, type: 3}
+  m_Script: {fileID: 11500000, guid: 63b12461d650b544e86a140e3527e11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingCounter: {fileID: 5249880924620704619}
+  baseCounter: {fileID: 5249880924620704619}
+  visualGameObjects:
+  - {fileID: 7211430320945520467}
+  - {fileID: 6699973770467261370}
+  - {fileID: 3285873424539797101}
