@@ -42,14 +42,9 @@ public class PlateCounter : BaseCounter
         {
             if(plateSpawnedAmount > 0)
             {
-                if(plateSpawnedAmount == 1)
-                {
-                    GetKitchenObject().DestroySelf();
-                }
                 plateSpawnedAmount--;
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectData, player);
                 OnPlateRemoved?.Invoke(this, EventArgs.Empty);
-
             }
         }
     }
