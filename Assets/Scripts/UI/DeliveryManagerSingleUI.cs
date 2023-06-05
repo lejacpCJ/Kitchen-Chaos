@@ -28,7 +28,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         foreach(KitchenObjectData kitchenObjectData in recipeData.kitchenObjectDatas)
         {
             Transform iconTranform = Instantiate(iconTemplate, iconContainer);
-            iconTemplate.gameObject.SetActive(true);
+            iconTranform.gameObject.SetActive(true);
             iconTranform.GetComponent<Image>().sprite = kitchenObjectData.sprite;
         }
     }
