@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
     [SerializeField] private AudioClipRefsData audioClipRefsData;
-
+    private float volume =1f;
     private void Start()
     {
         DeliveryManager.Instance.OnRecipeSuccessed += DeliveryManager_OnRecipeSuccessed;
@@ -58,17 +58,31 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipRefsData.deliverySuccess, deliveryCounter.transform.position);
     }
 
-    private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
+    private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f)
     {
-        AudioSource.PlayClipAtPoint(audioClip, position, volume);
+        AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);
     }
-    private void PlaySound(AudioClip[] audioClips, Vector3 position, float volume = 1f)
+    private void PlaySound(AudioClip[] audioClips, Vector3 position, float volumeMultiplier = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClips[Random.Range(0, audioClips.Length)], position, volume);
     }
 
-    public void PlayFootStepSound(Vector3 position, float volume = 1f)
+    public void PlayFootStepSound(Vector3 position, float volumeMultiplier = 1f)
     {
-        PlaySound(audioClipRefsData.footStep, position, volume);
+        PlaySound(audioClipRefsData.footStep, position, volumeMultiplier * volume);
+    }
+
+    public void ChangeVolume()
+    {
+        volume += 0.1f;
+        if(volume > 1)
+        {
+            volume = 0f;
+        }
+    }
+
+    public float GetVolume()
+    {
+        return volume;
     }
 }
