@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundManager : MonoBehaviour
 {
+    private const string PLAYER_PREFS_SOUND_EFFECT_VOLUME = "Sound Effect Volume";
+
     public static SoundManager Instance { get; private set; }
     [SerializeField] private AudioClipRefsData audioClipRefsData;
-    private float volume =1f;
+    private float volume = 1f;
     private void Start()
     {
         DeliveryManager.Instance.OnRecipeSuccessed += DeliveryManager_OnRecipeSuccessed;
@@ -20,6 +23,8 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECT_VOLUME, 1f);
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
@@ -79,6 +84,8 @@ public class SoundManager : MonoBehaviour
         {
             volume = 0f;
         }
+        PlayerPrefs.SetFloat(PLAYER_PREFS_SOUND_EFFECT_VOLUME, volume);
+        PlayerPrefs.Save();
     }
 
     public float GetVolume()
